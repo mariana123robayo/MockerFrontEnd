@@ -86,5 +86,15 @@
 </section>
 
 <section class="mt-[4rem]">
-  <app-log-console></app-log-console>
+  @if(simulation?.state !== 'RUNNING'){
+  <h2 class="text-white text-center">¡SIMULACIÓN EN PAUSA!</h2>
+  }@else{
+    @if(!loading){
+      <app-log-console [dataLogs]="dataLogs"></app-log-console>
+    }@else{
+      <div class="flex justify-center items-center">
+        <mat-spinner></mat-spinner>
+      </div>
+    }
+  }
 </section>
